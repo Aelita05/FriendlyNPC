@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    public GameObject DialogueBox;
     public Text nameText;
     public Text dialogueText;
 
@@ -17,6 +18,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {
+        DialogueBox.SetActive(true);
         nameText.text = dialogue.name;
 
         sentences.Clear();
@@ -43,6 +45,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        DialogueBox.SetActive(false);
         Debug.Log("End of conversation.");
     }
 }
