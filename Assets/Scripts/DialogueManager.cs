@@ -13,11 +13,15 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         sentences = new Queue<string>();
     }
 
     public void StartDialogue (Dialogue dialogue)
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         DialogueBox.SetActive(true);
         nameText.text = dialogue.name;
 
@@ -45,6 +49,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        Cursor.visible = false;
         DialogueBox.SetActive(false);
         Debug.Log("End of conversation.");
     }
